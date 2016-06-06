@@ -1,0 +1,24 @@
+{
+  "name": "webdriver-beyond-checks-js",
+  "version": "1.0.0",
+  "description": "JS checking framework for checking beyond webdriver framework",
+  "scripts": {
+    "test": "mocha test --timeout 10000",
+    "test-dev": "mocha test --timeout 10000 --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/FriendlyTester/WebDriverBeyondChecks.git"
+  },
+  "author": "Mark Winteringham / Richard Bradshaw",
+  "bugs": {
+    "url": "https://github.com/FriendlyTester/WebDriverBeyondChecks/issues"
+  },
+  "homepage": "https://github.com/FriendlyTester/WebDriverBeyondChecks#readme",
+  "dependencies": {
+    "chai": "^3.5.0",
+    "jsdom": "^9.2.1",
+    "mocha": "^2.5.3",
+    "request": "^2.72.0"
+  }
+}
