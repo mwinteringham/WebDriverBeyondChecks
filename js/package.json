@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "JS checking framework for checking beyond webdriver framework",
   "scripts": {
-    "test": "mocha test --timeout 5000",
-    "test-dev": "mocha test --timeout 5000 --watch"
+    "test": "mocha test --timeout 10000",
+    "test-dev": "mocha test --timeout 10000 --watch"
   },
   "repository": {
     "type": "git",
