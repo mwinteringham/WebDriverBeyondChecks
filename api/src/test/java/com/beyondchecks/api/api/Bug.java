@@ -7,7 +7,7 @@ import org.springframework.web.client.RestTemplate;
 public class Bug {
 
     private static RestTemplate restTemplate = new RestTemplate();
-    private static String baseUrl = "https://landfill.bugzilla.org/bugzilla-5.0-branch";
+    private static String baseUrl = "http://52.17.197.56:8080/bugzilla";
 
     public static ResponseEntity<String> getBug(int id){
         return restTemplate.getForEntity(baseUrl + "/rest/bug/" + Integer.toString(id),
@@ -20,6 +20,6 @@ public class Bug {
 
         HttpEntity<BugPayload> httpEntity = new HttpEntity<BugPayload>(payload, requestHeaders);
 
-        return restTemplate.exchange(baseUrl + "/rest/bug?login=mark@mwtestconsultancy.co.uk&password=c956N!xK@I9!OcoSbu6A", HttpMethod.POST, httpEntity, String.class);
+        return restTemplate.exchange(baseUrl + "/rest/bug?login=admin@bugzilla.org&password=password", HttpMethod.POST, httpEntity, String.class);
     }
 }

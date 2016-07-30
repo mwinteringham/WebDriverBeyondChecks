@@ -19,11 +19,11 @@ public class ApiTest {
     @Test
     public void checkForBugCreation(){
         BugPayload bugToCreate = new BugPayload.BugPayloadBuilder()
-                .setProduct("FoodReplicator")
-                .setComponent("Salt")
+                .setProduct("TestProduct")
+                .setComponent("TestComponent")
                 .setSummary("testing")
-                .setVersion("1.0")
-                .setOp_sys("Linux")
+                .setVersion("unspecified")
+                .setOp_sys("Windows")
                 .setRep_platform("PC").build();
 
         ResponseEntity<String> result = Bug.postBug(bugToCreate);
