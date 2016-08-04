@@ -1,6 +1,7 @@
 package pageobjects;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -40,7 +41,7 @@ public class MainPage extends PageObject
     @FindBy(how = How.LINK_TEXT, using = "Log In")
     private WebElement linkLogin;
 
-    @FindBy(how = How.LINK_TEXT, using = "Forget Password")
+    @FindBy(how = How.ID, using = "forgot_link_top")
     private WebElement linkForgotPassword;
 
     @FindBy(how = How.ID, using = "enter_bug")
@@ -75,6 +76,12 @@ public class MainPage extends PageObject
 
     @FindBy(how = How.ID, using = "forgot_button_top")
     public WebElement btnResetPassword;
+
+    @FindBy(how = How.LINK_TEXT, using = "[x]")
+    public WebElement btnCloseLoginForm;
+
+    @FindBy(how = How.LINK_TEXT, using = "Log out")
+    public WebElement btnLogout;
 
     public MainPage(WebDriver driver)
     {
@@ -157,6 +164,12 @@ public class MainPage extends PageObject
         return new MainPage(driver);
     }
 
+    public MainPage PressEnterInPasswordField()
+    {
+        txtPassword.sendKeys(Keys.ENTER);
+        return new MainPage(driver);
+    }
+
     public void ClickForgotPassword()
     {
         linkForgotPassword.click();
@@ -195,5 +208,25 @@ public class MainPage extends PageObject
     {
         btnOpenANewAccount.click();
         return new CreateAccountPage(driver);
+    }
+
+    public boolean IsLoginEmailAddressFieldDisplayed()
+    {
+        return txtEmailAddress.isDisplayed();
+    }
+
+    public boolean IsRecoveryEmailAddressFieldDisplayed()
+    {
+        return txtForgotPasswordEmail.isDisplayed();
+    }
+
+    public void ClickCloseTopForm()
+    {
+        btnCloseLoginForm.click();
+    }
+
+    public boolean IsLogoutButtonDisplayed()
+    {
+        return btnLogout.isDisplayed();
     }
 }

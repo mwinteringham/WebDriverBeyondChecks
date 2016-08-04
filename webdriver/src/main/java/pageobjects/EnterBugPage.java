@@ -20,6 +20,9 @@ public class EnterBugPage extends PageObject
     @FindBy(how = How.ID, using = "component")
     private WebElement selComponent;
 
+    @FindBy(how = How.ID, using = "bug_status")
+    private WebElement selStatus;
+
     @FindBy(how = How.ID, using = "version")
     private WebElement selVersion;
 
@@ -40,6 +43,12 @@ public class EnterBugPage extends PageObject
 
     @FindBy(how = How.ID, using = "commit")
     private WebElement btnSubmitBug;
+
+    @FindBy(how = How.ID, using = "con_calendar_deadline")
+    private WebElement cldDeadline;
+
+    @FindBy(how = How.ID, using = "button_calendar_deadline")
+    private WebElement btnDeadlineCalendar;
 
     public EnterBugPage(WebDriver driver)
     {
@@ -92,5 +101,25 @@ public class EnterBugPage extends PageObject
     {
         btnSubmitBug.click();
         return new BugPage(driver);
+    }
+
+    public void ClickShowAdvancedFields()
+    {
+        linkShowAdvancedFields.click();
+    }
+
+    public boolean IsStatusDropdownDisplayed()
+    {
+        return selStatus.isDisplayed();
+    }
+
+    public boolean IsDeadlineCalendarDisplayed()
+    {
+        return cldDeadline.isDisplayed();
+    }
+
+    public void ClickDeadlineCalendar()
+    {
+        btnDeadlineCalendar.click();
     }
 }
