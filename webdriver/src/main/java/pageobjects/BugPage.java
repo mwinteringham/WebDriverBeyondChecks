@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
@@ -98,11 +99,17 @@ public class BugPage extends PageObject
     @FindBy(how = How.CSS, using = "#c1 a.bz_reply_link")
     private WebElement btnReplyToFirstComment;
 
+    @FindBy(how = How.ID, using = "error_msg")
+    private WebElement lblErrorMessage;
+
+    @FindBy(how = How.ID, using = "ct_0_Test")
+    private WebElement lblTagOnFirstComment;
+
     public BugPage(WebDriver driver)
     {
         super(driver);
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("changeform")));
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("bugzilla-body")));
     }
 
     public String ReadBugShortDescription()
@@ -169,5 +176,70 @@ public class BugPage extends PageObject
     public void ClickReplyToTheFirstComment()
     {
         btnReplyToFirstComment.click();
+    }
+
+    public String ReadStatus()
+    {
+        return lblStatus.getText();
+    }
+
+    public String ReadProduct()
+    {
+        Select select = new Select(selProduct);
+        return select.getFirstSelectedOption().getText();
+    }
+
+    public String ReadComponent()
+    {
+        Select select = new Select(selComponent);
+        return select.getFirstSelectedOption().getText();
+    }
+
+    public String ReadHardware()
+    {
+        Select select = new Select(selHardware);
+        return select.getFirstSelectedOption().getText();
+    }
+
+    public String ReadOS()
+    {
+        Select select = new Select(selOs);
+        return select.getFirstSelectedOption().getText();
+    }
+
+    public String ReadSeverity()
+    {
+        Select select = new Select(selSeverity);
+        return select.getFirstSelectedOption().getText();
+    }
+
+    public String ReadDescription()
+    {
+        return lblFirstComment.getText();
+    }
+
+    public String ReadErrorMessage()
+    {
+        return lblErrorMessage.getText();
+    }
+
+    public String ReadErrorMessageClass()
+    {
+        return lblErrorMessage.getAttribute("class");
+    }
+
+    public void PopulateTagOnFirstComment(String tag)
+    {
+        txtTag.sendKeys(tag);
+    }
+
+    public void PressEnterInTagInput()
+    {
+        txtTag.sendKeys(Keys.ENTER);
+    }
+
+    public String ReadTagOnFirstComment()
+    {
+        return lblTagOnFirstComment.getText();
     }
 }
