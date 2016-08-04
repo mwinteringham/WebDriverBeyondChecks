@@ -1,7 +1,7 @@
 {
-  "domain": "https://landfill.bugzilla.org/bugzilla-5.0-branch",
+  "domain": "http://52.17.197.56:8080/bugzilla/",
   "login": {
-    "username": "mark@mwtestconsultancy.co.uk",
-    "password": "c956N!xK@I9!OcoSbu6A"
+    "username": "admin@bugzilla.org",
+    "password": "password"
   }
 }

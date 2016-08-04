@@ -13,7 +13,7 @@ describe('Initial JS unit check', function(){
   it('should pull down the site and run assertion', function(done){
     // Pass the url of the webpage we want to access.  We set the domain for the page in the config.json file
     // once build has been run it will callback a window which we can execute the JS in the page and assert upon
-    page.build('/enter_bug.cgi?product=FoodReplicator', function(window){
+    page.build('/enter_bug.cgi?product=TestProduct', function(window){
       // Trigger the JS method that exists on the page (Try it out on console in devtools / firebug)
       window.show_comment_preview();
 
