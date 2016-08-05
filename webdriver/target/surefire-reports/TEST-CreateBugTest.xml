@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="3" failures="0" name="CreateBugTest" time="14.569" errors="0" skipped="0">
+<testsuite tests="3" failures="0" name="CreateBugTest" time="16.916" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib"/>
@@ -60,7 +60,7 @@
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="CreateBugTest" name="CalenderShowsForDeadlineAdvancedOption" time="4.249"/>
-  <testcase classname="CreateBugTest" name="CreateBasicBug" time="6.509"/>
-  <testcase classname="CreateBugTest" name="ShowAdvancedFieldsAreShown" time="3.811"/>
+  <testcase classname="CreateBugTest" name="CalenderShowsForDeadlineAdvancedOption" time="4.968"/>
+  <testcase classname="CreateBugTest" name="CreateBasicBug" time="7.539"/>
+  <testcase classname="CreateBugTest" name="ShowAdvancedFieldsAreShown" time="4.409"/>
 </testsuite>

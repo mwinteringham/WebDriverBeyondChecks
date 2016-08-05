@@ -87,6 +87,7 @@ public class BugPageTest extends TestSetup
         bugPage.PopulateTagOnFirstComment(tag);
         bugPage.PressEnterInTagInput();
         Assert.assertThat(bugPage.ReadTagOnFirstComment(), is(equalTo("x " + tag)));
+        bugPage.ClickXOnTagOnFirstComment();
     }
 
     @Test

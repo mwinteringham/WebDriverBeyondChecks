@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="6" failures="0" name="HomePageTest" time="13.368" errors="0" skipped="0">
+<testsuite tests="6" failures="0" name="HomePageTest" time="15.06" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib"/>
@@ -60,10 +60,10 @@
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="HomePageTest" name="TestForgotPasswordShowsRecoveryForm" time="1.99"/>
-  <testcase classname="HomePageTest" name="TestCloseButtonClosesRecoveryForm" time="1.961"/>
-  <testcase classname="HomePageTest" name="Login" time="2.929"/>
-  <testcase classname="HomePageTest" name="TestCloseButtonClosesLoginForm" time="2.007"/>
-  <testcase classname="HomePageTest" name="NewButtonNavigationNotLoggedIn" time="2.578"/>
-  <testcase classname="HomePageTest" name="TestLoginButtonShowsLoginForm" time="1.903"/>
+  <testcase classname="HomePageTest" name="TestForgotPasswordShowsRecoveryForm" time="2.31"/>
+  <testcase classname="HomePageTest" name="TestCloseButtonClosesRecoveryForm" time="2.184"/>
+  <testcase classname="HomePageTest" name="Login" time="3.161"/>
+  <testcase classname="HomePageTest" name="TestCloseButtonClosesLoginForm" time="2.357"/>
+  <testcase classname="HomePageTest" name="NewButtonNavigationNotLoggedIn" time="2.948"/>
+  <testcase classname="HomePageTest" name="TestLoginButtonShowsLoginForm" time="2.1"/>
 </testsuite>

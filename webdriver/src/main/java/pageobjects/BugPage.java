@@ -102,8 +102,11 @@ public class BugPage extends PageObject
     @FindBy(how = How.ID, using = "error_msg")
     private WebElement lblErrorMessage;
 
-    @FindBy(how = How.ID, using = "ct_0_Test")
+    @FindBy(how = How.CSS   , using = "#ct_0 span")
     private WebElement lblTagOnFirstComment;
+
+    @FindBy(how = How.CSS   , using = "#ct_0 span a")
+    private WebElement btnDeleteTagOnFirstComment;
 
     public BugPage(WebDriver driver)
     {
@@ -241,5 +244,10 @@ public class BugPage extends PageObject
     public String ReadTagOnFirstComment()
     {
         return lblTagOnFirstComment.getText();
+    }
+
+    public void ClickXOnTagOnFirstComment()
+    {
+        btnDeleteTagOnFirstComment.click();
     }
 }
