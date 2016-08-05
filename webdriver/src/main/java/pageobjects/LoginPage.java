@@ -40,6 +40,11 @@ public class LoginPage extends PageObject
         return new EnterBugPage(driver);
     }
 
+    public void ClickLogin()
+    {
+        btnLogin.click();
+    }
+
     public boolean IsEmailFieldDisplayed()
     {
         return txtEmail.isDisplayed();

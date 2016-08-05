@@ -31,6 +31,6 @@ public class LoginHelper
         LoginPage loginPage = new LoginPage(driver);
         loginPage.PopulateEmail(emailAddress);
         loginPage.PopulatePassword(password);
-        loginPage.ClickLoginExpectingNewBugPage();
+        loginPage.ClickLogin();
     }
 }
