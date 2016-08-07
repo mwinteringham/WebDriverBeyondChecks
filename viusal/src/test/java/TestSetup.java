@@ -18,7 +18,7 @@ public class TestSetup
     {
         driver = new DriverFactory().create();
         baseUrl = "http://52.17.197.56:8080/bugzilla/";
-        Eyes eyes = new Eyes();
+        eyes = new Eyes();
         eyes.setApiKey("ZdP5w102YsLVHzdICTNiwXzcIlg107OF8RquYM2NYQWvOHQ110");
     }
 

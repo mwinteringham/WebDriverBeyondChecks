@@ -102,7 +102,6 @@ public class ChangeColumnsPage extends PageObject
         for(WebElement option : options)
         {
             selectedColumnOptions.add(option.getText().trim());
-            System.out.println(option.getText());
         }
 
         return selectedColumnOptions;

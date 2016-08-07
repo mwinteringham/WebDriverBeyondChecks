@@ -77,7 +77,7 @@ public class BugPageTest extends TestSetup
     @Test
     public void AddATagToTheFirstComment()
     {
-        String tag = "Test";
+        String tag = "test";
 
         NavigateToHomePage();
         new LoginHelper(driver).HomePageTopLogin("admin@bugzilla.org", "password");

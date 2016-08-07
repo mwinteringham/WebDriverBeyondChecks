@@ -23,7 +23,7 @@ public class VisualTest extends TestSetup
     {
         driver = eyes.open(driver, "BugZilla", "Main Page Logged In Layout", new RectangleSize(1024, 768));
         driver.get(baseUrl);
-        new LoginHelper(driver).HomePageTopLogin("richard@bugzilla.org", "cast2016!");
+        new LoginHelper(driver).HomePageTopLogin("admin@bugzilla.org", "password");
         MainPage mainPage = new MainPage(driver);
         eyes.checkWindow("Main Page Logged In");
     }
