@@ -1,0 +1,11 @@
+version: '2.0'
+services:
+  bugzilla:
+    image: mwinteringham/bugzilla
+    build: .
+    ports:
+      - "8080:80"
+      - "2222:22"
+      - "5900:5900"
+      - "3306:3306"
+      - "3001:3001"

@@ -4,3 +4,4 @@ node_modules
 webdriver/target
 api/target
 .DS_Store
+creator.js
