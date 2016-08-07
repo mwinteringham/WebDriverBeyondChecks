@@ -1,6 +1,5 @@
 import helpers.LoginHelper;
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 import pageobjects.LoginPage;
 import pageobjects.MainPage;
