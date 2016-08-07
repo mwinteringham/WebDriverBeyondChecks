@@ -17,7 +17,7 @@ public class AccountTest extends TestSetup
     @Test
     public void CreateANewAccount() throws ParseException
     {
-        driver.navigate().to(baseUrl + "/createaccount.cgi");
+        driver.navigate().to(baseUrl + "createaccount.cgi");
         CreateAccountPage createAccountPage = new CreateAccountPage(driver);
 
         String randomEmail = "test" + new SimpleDateFormat("ddMMyyyyHHmmss").format(new Date()) + "@test.com";
@@ -32,7 +32,7 @@ public class AccountTest extends TestSetup
     {
         //TODO Good for Applitools and Javascript
         //As a JS popup shows
-        driver.navigate().to(baseUrl + "/createaccount.cgi");
+        driver.navigate().to(baseUrl + "createaccount.cgi");
         CreateAccountPage createAccountPage = new CreateAccountPage(driver);
         createAccountPage.PopulateEmailAddress("test.com");
         createAccountPage = createAccountPage.ClickSend();
@@ -42,12 +42,12 @@ public class AccountTest extends TestSetup
     @Test
     public void HaveToWaitTenMinutesToCreateAccount()
     {
-        driver.navigate().to(baseUrl + "/createaccount.cgi");
+        driver.navigate().to(baseUrl + "createaccount.cgi");
         CreateAccountPage createAccountPage = new CreateAccountPage(driver);
         String randomEmail = "test" + new SimpleDateFormat("ddMMyyyyHHmmss").format(new Date()) + "@test.com";
         createAccountPage.PopulateEmailAddress(randomEmail);
         createAccountPage = createAccountPage.ClickSend();
-        driver.navigate().to(baseUrl + "/createaccount.cgi");
+        driver.navigate().to(baseUrl + "createaccount.cgi");
         createAccountPage.PopulateEmailAddress(randomEmail);
         createAccountPage = createAccountPage.ClickSend();
         Assert.assertThat(createAccountPage.ReadErrorMessage(), is(equalTo("You have requested an account token too recently to request another. Please wait 10 minutes then try again.")));
