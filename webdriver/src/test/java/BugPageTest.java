@@ -59,9 +59,11 @@ public class BugPageTest extends TestSetup
     @Test
     public void ExpandCollapseComments()
     {
+        BugResponseModel bug = BugCreator.createBug(new BugBuilder().BuildBasicNewBug());
+
         NavigateToHomePage();
         new LoginHelper(driver).HomePageTopLogin("admin@bugzilla.org", "password");
-        NavigateToBug(3);
+        NavigateToBug(bug.getId());
         BugPage bugPage = new BugPage(driver);
         Assert.assertThat(bugPage.IsTheFirstCommentDisplayed(), is(equalTo(true)));
         bugPage.ClickCollapseAllComments();
@@ -71,9 +73,11 @@ public class BugPageTest extends TestSetup
     @Test
     public void ShowCloseTagFieldOnComment()
     {
+        BugResponseModel bug = BugCreator.createBug(new BugBuilder().BuildBasicNewBug());
+
         NavigateToHomePage();
         new LoginHelper(driver).HomePageTopLogin("admin@bugzilla.org", "password");
-        NavigateToBug(3);
+        NavigateToBug(bug.getId());
         BugPage bugPage = new BugPage(driver);
         Assert.assertThat(bugPage.IsTagInputDisplayed(), is(equalTo(false)));
         bugPage.ClickTagOnTheFirstComment();
@@ -86,10 +90,12 @@ public class BugPageTest extends TestSetup
     public void AddATagToTheFirstComment()
     {
         String tag = "test";
+        BugResponseModel bug = BugCreator.createBug(new BugBuilder().BuildBasicNewBug());
+        BugCreator.createBugComment(new BugBuilder().BuildBugComment("This is a comment"), bug.getId());
 
         NavigateToHomePage();
         new LoginHelper(driver).HomePageTopLogin("admin@bugzilla.org", "password");
-        NavigateToBug(3);
+        NavigateToBug(bug.getId());
         BugPage bugPage = new BugPage(driver);
         bugPage.ClickTagOnTheFirstComment();
         bugPage.PopulateTagOnFirstComment(tag);
@@ -101,9 +107,12 @@ public class BugPageTest extends TestSetup
     @Test
     public void ToggleFirstComment()
     {
+        BugResponseModel bug = BugCreator.createBug(new BugBuilder().BuildBasicNewBug());
+        BugCreator.createBugComment(new BugBuilder().BuildBugComment("This is a comment"), bug.getId());
+
         NavigateToHomePage();
         new LoginHelper(driver).HomePageTopLogin("admin@bugzilla.org", "password");
-        NavigateToBug(3);
+        NavigateToBug(bug.getId());
         BugPage bugPage = new BugPage(driver);
         Assert.assertThat(bugPage.IsTheFirstCommentDisplayed(), is(equalTo(true)));
         bugPage.ClickToggleFirstComment();
@@ -115,10 +124,12 @@ public class BugPageTest extends TestSetup
     @Test
     public void CheckCommentPreview()
     {
+        BugResponseModel bug = BugCreator.createBug(new BugBuilder().BuildBasicNewBug());
+
         String commentText = "This is a comment";
         NavigateToHomePage();
         new LoginHelper(driver).HomePageTopLogin("admin@bugzilla.org", "password");
-        NavigateToBug(3);
+        NavigateToBug(bug.getId());
         BugPage bugPage = new BugPage(driver);
         bugPage.PopulateComment(commentText);
         bugPage.ClickPreviewTab();
@@ -129,13 +140,14 @@ public class BugPageTest extends TestSetup
     @Test
     public void ReplyToAComment()
     {
-        String originalCommentText = "dfgdg";
+        String originalCommentText = "comment goes here";
 
-        BugCreator.createBugComment(new BugBuilder().BuildBugComment("originalCommentText"), 3);
+        BugResponseModel bug = BugCreator.createBug(new BugBuilder().BuildBasicNewBug());
+        BugCreator.createBugComment(new BugBuilder().BuildBugComment(originalCommentText), bug.getId());
 
         NavigateToHomePage();
         new LoginHelper(driver).HomePageTopLogin("admin@bugzilla.org", "password");
-        NavigateToBug(3);
+        NavigateToBug(bug.getId());
         BugPage bugPage = new BugPage(driver);
         bugPage.ClickReplyToTheFirstComment();
         Assert.assertThat(bugPage.ReadCommentField(), is(equalTo("(In reply to Admin from comment #1)\n> " + originalCommentText + "\n\n")));

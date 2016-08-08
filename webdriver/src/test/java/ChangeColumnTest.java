@@ -1,7 +1,6 @@
 import org.junit.Assert;
 import org.junit.Test;
 import pageobjects.ChangeColumnsPage;
-import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.not;
 import static org.hamcrest.core.Is.is;
