@@ -1,5 +1,6 @@
 import databuilder.builders.BugBuilder;
 import databuilder.creators.BugCreator;
+import databuilder.models.BugCommentModel;
 import databuilder.models.BugModel;
 import databuilder.models.BugResponseModel;
 import helpers.LoginHelper;
@@ -126,17 +127,18 @@ public class BugPageTest extends TestSetup
     }
 
     @Test
-    //TODO Requires a bug with a comment on it, and to know it's text
     public void ReplyToAComment()
     {
-        String originalCommentTezt = "dfgdg";
+        String originalCommentText = "dfgdg";
+
+        BugCreator.createBugComment(new BugBuilder().BuildBugComment("originalCommentText"), 3);
 
         NavigateToHomePage();
         new LoginHelper(driver).HomePageTopLogin("admin@bugzilla.org", "password");
         NavigateToBug(3);
         BugPage bugPage = new BugPage(driver);
         bugPage.ClickReplyToTheFirstComment();
-        Assert.assertThat(bugPage.ReadCommentField(), is(equalTo("(In reply to Admin from comment #1)\n> " + originalCommentTezt + "\n\n")));
+        Assert.assertThat(bugPage.ReadCommentField(), is(equalTo("(In reply to Admin from comment #1)\n> " + originalCommentText + "\n\n")));
     }
 
     private void NavigateToHomePage()

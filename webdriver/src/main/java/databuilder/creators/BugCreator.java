@@ -1,5 +1,6 @@
 package databuilder.creators;
 
+import databuilder.models.BugCommentModel;
 import databuilder.models.BugModel;
 import databuilder.models.BugResponseModel;
 import databuilder.models.BugUpdateModel;
@@ -33,5 +34,14 @@ public class BugCreator
         HttpEntity<BugUpdateModel> httpEntity = new HttpEntity<BugUpdateModel>(payload, requestHeaders);
 
         return restTemplate.exchange(baseUrl + "/rest/bug/" + Integer.toString(id) + "?login=admin@bugzilla.org&password=password", HttpMethod.PUT, httpEntity, String.class);
+    }
+
+    public static ResponseEntity<String> createBugComment(BugCommentModel payload, int id) {
+        HttpHeaders requestHeaders = new HttpHeaders();
+        requestHeaders.setContentType(MediaType.APPLICATION_JSON);
+
+        HttpEntity<BugCommentModel> httpEntity = new HttpEntity<BugCommentModel>(payload, requestHeaders);
+
+        return restTemplate.exchange(baseUrl + "/rest/bug/" + Integer.toString(id) + "/comment?login=admin@bugzilla.org&password=password", HttpMethod.POST, httpEntity, String.class);
     }
 }

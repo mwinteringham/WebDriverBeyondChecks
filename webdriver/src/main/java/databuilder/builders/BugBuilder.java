@@ -1,5 +1,6 @@
 package databuilder.builders;
 
+import databuilder.models.BugCommentModel;
 import databuilder.models.BugModel;
 import databuilder.models.BugUpdateModel;
 
@@ -26,5 +27,7 @@ public class BugBuilder
     {
         return new BugUpdateModel(summary, ids);
     }
+
+    public BugCommentModel BuildBugComment(String commentDescription) { return new BugCommentModel(commentDescription, false, false); }
 
 }
