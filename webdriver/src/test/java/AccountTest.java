@@ -30,8 +30,6 @@ public class AccountTest extends TestSetup
     @Test
     public void CantCreateAccountWithInvalidEmail() throws ParseException
     {
-        //TODO Good for Applitools and Javascript
-        //As a JS popup shows
         driver.navigate().to(baseUrl + "createaccount.cgi");
         CreateAccountPage createAccountPage = new CreateAccountPage(driver);
         createAccountPage.PopulateEmailAddress("test.com");

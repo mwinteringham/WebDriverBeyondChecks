@@ -1,3 +1,7 @@
+import databuilder.builders.BugBuilder;
+import databuilder.creators.BugCreator;
+import databuilder.models.BugModel;
+import databuilder.models.BugResponseModel;
 import helpers.LoginHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -15,17 +19,20 @@ public class BugPageTest extends TestSetup
     //TODO Hug into the bugd data creation API
     public void CheckAllBugValues()
     {
+        BugModel bug = new BugBuilder().BuildBasicNewBug();
+        BugResponseModel bugResponse = BugCreator.createBug(bug);
+
         NavigateToHomePage();
         new LoginHelper(driver).HomePageTopLogin("admin@bugzilla.org", "password");
-        NavigateToBug(3);
+        NavigateToBug(bugResponse.getId());
         BugPage bugPage = new BugPage(driver);
         Assert.assertThat(bugPage.ReadStatus(), is(equalTo("CONFIRMED (edit)")));
-        Assert.assertThat(bugPage.ReadProduct(), is(equalTo("TestProduct")));
-        Assert.assertThat(bugPage.ReadComponent(), is(equalTo("TestComponent")));
-        Assert.assertThat(bugPage.ReadHardware(), is(equalTo("PC")));
-        Assert.assertThat(bugPage.ReadOS(), is(equalTo("Mac OS")));
-        Assert.assertThat(bugPage.ReadSeverity(), is(equalTo("minor")));
-        Assert.assertThat(bugPage.ReadDescription(), is(equalTo("This is a minor description")));
+        Assert.assertThat(bugPage.ReadProduct(), is(equalTo(bug.getProduct())));
+        Assert.assertThat(bugPage.ReadComponent(), is(equalTo(bug.getComponent())));
+        Assert.assertThat(bugPage.ReadHardware(), is(equalTo(bug.getRep_platform())));
+        Assert.assertThat(bugPage.ReadOS(), is(equalTo(bug.getOp_sys())));
+        Assert.assertThat(bugPage.ReadSeverity(), is(equalTo("enhancement")));
+        Assert.assertThat(bugPage.ReadDescription(), is(equalTo(bug.getDescription())));
     }
 
     @Test
