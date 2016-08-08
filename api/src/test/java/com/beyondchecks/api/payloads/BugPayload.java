@@ -19,7 +19,7 @@ public class BugPayload {
     @JsonProperty
     private String rep_platform;
 
-    private BugPayload(String product, String component, String summary, String version, String op_sys, String rep_platform){
+    public BugPayload(String product, String component, String summary, String version, String op_sys, String rep_platform){
         this.product = product;
         this.component = component;
         this.summary = summary;
@@ -50,48 +50,5 @@ public class BugPayload {
 
     public String getRep_platform() {
         return rep_platform;
-    }
-
-    public static class BugPayloadBuilder {
-        private String product;
-        private String component;
-        private String summary;
-        private String version;
-        private String op_sys;
-        private String rep_platform;
-
-        public BugPayloadBuilder setProduct(String product) {
-            this.product = product;
-            return this;
-        }
-
-        public BugPayloadBuilder setComponent(String component) {
-            this.component = component;
-            return this;
-        }
-
-        public BugPayloadBuilder setSummary(String summary) {
-            this.summary = summary;
-            return this;
-        }
-
-        public BugPayloadBuilder setVersion(String version) {
-            this.version = version;
-            return this;
-        }
-
-        public BugPayloadBuilder setOp_sys(String op_sys) {
-            this.op_sys = op_sys;
-            return this;
-        }
-
-        public BugPayloadBuilder setRep_platform(String rep_platform) {
-            this.rep_platform = rep_platform;
-            return this;
-        }
-
-        public BugPayload build(){
-            return new BugPayload(product, component, summary, version, op_sys, rep_platform);
-        }
     }
 }
