@@ -7,7 +7,7 @@ import org.springframework.web.client.RestTemplate;
 public class Bug {
 
     private static RestTemplate restTemplate = new RestTemplate();
-    private static String baseUrl = "http://52.17.197.56:8080/bugzilla";
+    private static String baseUrl = "http://52.50.48.215:8080/bugzilla";
 
     public static ResponseEntity<String> getBug(int id){
         return restTemplate.getForEntity(baseUrl + "/rest/bug/" + Integer.toString(id),

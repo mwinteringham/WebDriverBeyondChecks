@@ -1,5 +1,5 @@
 {
-  "domain": "http://52.17.197.56:8080/bugzilla/",
+  "domain": "http://52.50.48.215:8080/bugzilla/",
   "login": {
     "username": "admin@bugzilla.org",
     "password": "password"
