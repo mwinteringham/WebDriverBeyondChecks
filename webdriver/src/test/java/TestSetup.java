@@ -15,7 +15,7 @@ public class TestSetup
     public void SetUp()
     {
         driver = new DriverFactory().create();
-        baseUrl = "http://52.17.197.56:8080/bugzilla/";
+        baseUrl = "http://52.209.233.55:8080/bugzilla/";
     }
 
     @After
